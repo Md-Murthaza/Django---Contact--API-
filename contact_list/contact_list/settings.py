@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 from decouple import config
+
 SECRET_KEY = config('SECRET_KEY') 
 DEBUG = config('DEBUG', default=False, cast=bool) 
 
@@ -26,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -43,7 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'contacts',
     'django_filters',
-    'rest_framework_simplejwt',
+    
 ]
 
 MIDDLEWARE = [
@@ -55,18 +56,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
-}
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',  # This means that the user must be authenticated to access the API
-    ],
-}
 
 
 ROOT_URLCONF = 'contact_list.urls'

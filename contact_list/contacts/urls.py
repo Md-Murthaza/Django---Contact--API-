@@ -24,12 +24,10 @@ urlpatterns = [
     #crud operations in api
     path('contacts/',ContactListView.as_view(),name = 'contact-list'),
     path('contacts-create/',ContactCreateView.as_view(),name = 'contact-create'),
-    path('contacts/<int:pk>/',ContactDetailView.as_view(),name = 'contact-detail'),\
+    path('contacts/<int:pk>/',ContactDetailView.as_view(),name = 'contact-detail'),
     path('contacts/<int:pk>/update/',ContactUpdateView.as_view(),name = 'contact-update'),
     path('contacts/<int:pk>/delete/',ContactDeleteView.as_view(),name = 'contact-delete'),
 
 
-    #jwt token api
-    path('api/token/',TokenObtainPairView.as_view(),name='token_obtain_pair'),
-    path('api/token/refresh/',TokenRefreshView.as_view(),name = 'token_refresh'),
+    
 ]
